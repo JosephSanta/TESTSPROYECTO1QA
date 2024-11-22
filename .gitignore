@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+.env
+
+/mongo
+/postgres
+node_modules/
+dist/
+build/
+coverage/
