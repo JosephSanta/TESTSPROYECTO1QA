@@ -1,0 +1,12 @@
+{
+  "name": "entregable-proyecto-fase2-grupo6",
+  "version": "1.0.0",
+  "description": "Sistema de reserva de espacios en estacionamientos TEC",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

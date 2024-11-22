@@ -1,0 +1,193 @@
+
+<h1 >Editar información personal </h1>
+<form (submit)="onEditarCorreo(postForm)" #postForm="ngForm">
+    <mat-grid-list cols="2" rowHeight="6:1" #grid [cols]="cols" gutterSize="20px" >
+
+        <mat-grid-tile *ngIf="isAdmin == 0">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Identificación</mat-label>
+                    <input matInput readonly
+                    value="ID"
+                    type="text" 
+                    name="identificacion">
+                    </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="isAdmin==1">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Identificación</mat-label>
+                <input matInput
+                type="text" 
+                name="identificacion"
+                required
+                ngModel
+                #identificacion="ngModel">
+                <mat-error *ngIf="identificacion.invalid">Por favor ingrese una identificación</mat-error>
+            </mat-form-field>
+    </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Campus</mat-label>
+                <mat-select disabled="isAdmin==0" 
+                    name="campus"
+                    required
+                    ngModel
+                    #campus="ngModel">
+                    <mat-error *ngIf="campus.invalid">Por favor ingrese una opción</mat-error>
+                        <mat-option value="one">SJ</mat-option>
+                        <mat-option value="two">Cartago</mat-option>
+                    </mat-select>
+            </mat-form-field>  
+    </mat-grid-tile>
+
+        <mat-grid-tile *ngIf="isAdmin == 0">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nombre completo</mat-label>
+                    <input matInput readonly
+                    type="text" 
+                    name="nombre"
+                    value="nombre completo">
+                </mat-form-field>  
+        </mat-grid-tile>
+        <mat-grid-tile *ngIf="isAdmin == 1">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Nombre completo</mat-label>
+                <input matInput
+                type="text" 
+                name="nombre"
+                required
+                ngModel
+                #nombre="ngModel">
+                <mat-error *ngIf="nombre.invalid">Por favor ingrese un nombre</mat-error>
+            </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="isAdmin == 0">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Tipo de funcionario</mat-label>
+                <input matInput readonly
+                type="text" 
+                name="tipoF"
+                value="Jefatura">
+            </mat-form-field>  
+    </mat-grid-tile>
+        <mat-grid-tile *ngIf="isAdmin==1">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Tipo de funcionario</mat-label>
+                <mat-select disabled="isAdmin==0" 
+                    name="tipoF"
+                    required
+                    ngModel
+                    #tipoF="ngModel">
+                    <mat-error *ngIf="tipoF.invalid">Por favor ingrese una opción</mat-error>
+                        <mat-option value="one">Jefatura</mat-option>
+                        <mat-option value="two">Administrador</mat-option>
+                    </mat-select>
+            </mat-form-field>  
+    </mat-grid-tile>
+        <mat-grid-tile>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Número telefónico</mat-label>
+                    <input matInput  
+                    type="text" 
+                    name="numeroTelefono"
+                    required
+                    ngModel
+                    #numeroTelefono="ngModel">
+                    <mat-error *ngIf="numeroTelefono.invalid">Por favor ingrese un número de teléfono</mat-error>
+                </mat-form-field> 
+        </mat-grid-tile>
+        
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Departamento</mat-label>
+                <mat-select disabled="isAdmin==0"
+                    name="dpto"
+                    required
+                    ngModel
+                    #dpto="ngModel">
+                    <mat-error *ngIf="dpto.invalid">Por favor ingrese una opción</mat-error>
+                        <mat-option value="one">Computación</mat-option>
+                        <mat-option value="two">Arquitectura y Urbanismo</mat-option>
+                    </mat-select>
+            </mat-form-field>  
+    </mat-grid-tile>
+    
+    <mat-grid-tile *ngIf="isAdmin == 0">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Correo institucional</mat-label>
+            <input matInput readonly
+            type="text" 
+            name="correoInstitucional"
+            value="correo institucional">
+        </mat-form-field>  
+</mat-grid-tile>
+<mat-grid-tile *ngIf="isAdmin == 1">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Correo institucional</mat-label>
+        <input matInput
+        type="text" 
+        name="correoInstitucional"
+        required
+        ngModel
+        #correoInstitucional="ngModel">
+        <mat-error *ngIf="correoInstitucional.invalid">Por favor ingrese un correo</mat-error>
+    </mat-form-field>
+</mat-grid-tile>
+<mat-grid-tile disabled="isAdmin==0">
+    <button  [disabled]="isAdmin==0"
+    mat-raised-button 
+    color="primary"
+    type="submit" >Agregar Departamento</button>
+</mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Correo personal</mat-label>
+            <input matInput  
+            type="email" 
+            name="correoPersonal"
+            required
+            ngModel
+            #correoPersonal="ngModel">
+            <mat-error *ngIf="correoPersonal.invalid">Por favor ingrese un correo</mat-error>
+        </mat-form-field> 
+    </mat-grid-tile>
+
+    <mat-grid-tile rowspan="4">
+        <mat-card>
+            <h2>Departamentos</h2>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" >
+          
+              <!-- Position Column -->
+              <ng-container matColumnDef="Departamento" width="auto">
+                <th mat-header-cell *matHeaderCellDef>Departamento</th>
+                <td mat-cell *matCellDef="let element"> {{element.dpto}} </td>
+              </ng-container>
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="Campus" width="auto">
+                <th mat-header-cell *matHeaderCellDef>Campus</th>
+                <td mat-cell *matCellDef="let element"> {{element.campus}} </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="departamentos.length" 
+        [pageSize]="5" [pageSizeOptions]="[5]">
+        </mat-paginator>
+          </div>
+        </mat-card>
+    </mat-grid-tile>
+
+        
+        <mat-grid-tile>
+            <button 
+            mat-raised-button 
+            color="primary"
+            type="submit" >Guardar</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
+    

@@ -1,0 +1,23 @@
+// Pruebas para el directorio home
+###
+POST http://localhost:3000/home/
+###
+GET http://localhost:3000/home/
+###
+PUT http://localhost:3000/home/
+###
+DELETE  http://localhost:3000/home/
+
+
+#########
+
+###
+POST http://localhost:3000/log-in/
+###
+GET http://localhost:3000/reservar-espacio/get-all
+###
+GET http://localhost:3000/reservar-espacio/
+###
+PUT http://localhost:3000/log-in/
+###
+DELETE  http://localhost:3000/log-in/
